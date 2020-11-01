@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/pickSitch');
+mongoose.connect('mongodb://localhost:27017/pickSitch');
 
 var db = mongoose.connection;
 
@@ -13,4 +13,4 @@ db.once('open', function() {
 
 module.exports = {
   db,
-}
+};

@@ -1,35 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import axios from 'axios';
 import List from './components/List.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      items: []
-    }
+    this.state = {
+      users: []
+    };
+    this.getUsers = this.getUsers.bind(this);
   }
 
   componentDidMount() {
-    $.ajax({
-      url: '/items', 
-      success: (data) => {
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
+    this.getUsers();
+  }
+
+  getUsers() {
+    axios.get('/users')
+      .then((response) => this.setState({users: response.data}))
+      .catch((err) => console.log(err));
   }
 
   render () {
     return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
-    </div>)
+      <h1>PickSitch</h1>
+      {/* <List items={this.state.items}/> */}
+    </div>);
   }
 }
 
