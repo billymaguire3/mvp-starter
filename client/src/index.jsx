@@ -1,19 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import List from './components/List.jsx';
+import Header from './components/Header.jsx';
+import Navbar from './components/Navbar.jsx';
+import EntryForm from './components/EntryForm.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      users: [],
+      weekNumber: 9,
+      schedule: [],
     };
     this.getUsers = this.getUsers.bind(this);
+    this.getSchedule = this.getSchedule.bind(this);
   }
 
   componentDidMount() {
     this.getUsers();
+    this.getSchedule(this.state.weekNumber);
   }
 
   getUsers() {
@@ -22,11 +28,19 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  getSchedule(weekNum) {
+    axios.get(`/schedules/${weekNum}`)
+      .then((response) => this.setState({schedule: response.data}))
+      .catch((err) => console.log(err));
+  }
+
   render () {
-    return (<div>
-      <h1>PickSitch</h1>
-      {/* <List items={this.state.items}/> */}
-    </div>);
+    return (
+      <header className="header-container">
+        <Header />
+        <Navbar />
+      </header>
+    );
   }
 }
 

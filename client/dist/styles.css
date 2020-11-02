@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata");
+
+/*--------------Header and Navbar----------------- */
+
+.header-container {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.header-container #header {
+  font-family: 'Literata', Arial, Helvetica, sans-serif;
+}
+
+.menu-icon:hover {
+  cursor: pointer;
+}
+
+.nav-list {
+  display: inline;
+  list-style-type: none;
+  align-items: center;
+}
+.nav-list-entry {
+  margin: 0 1vw;
+  text-decoration: none;
+  font-family: 'Literata', Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: #fca335;
+}
+.nav-list-entry:hover {
+  margin: 0 1vw;
+  text-decoration: none;
+  font-family: 'Literata', Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: #c97002;
+  background-color: #bfbfbf;
+  border-radius: 5%;
+  border-bottom: 4px solid #c97002;
+}
