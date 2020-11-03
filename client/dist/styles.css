@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata");
 
+/* --------- Global ----------------*/
+
+ul {
+  list-style-type: none;
+}
+
 /*--------------Header and Navbar----------------- */
 
 .header-container {

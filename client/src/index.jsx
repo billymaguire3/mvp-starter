@@ -4,8 +4,8 @@ import axios from 'axios';
 import Header from './components/Header.jsx';
 import Navbar from './components/Navbar.jsx';
 import EntryForm from './components/EntryForm.jsx';
-import WeekMatchups from './components/WeekMatchups.jsx';
 import Leaderboard from './components/Leaderboard.jsx';
+import EntriesList from './components/EntriesList.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,19 +14,11 @@ class App extends React.Component {
       users: [],
       weekNumber: 9,
       schedule: [],
-      // selectedId: 0
     };
     this.getUsers = this.getUsers.bind(this);
     this.getSchedule = this.getSchedule.bind(this);
     this.addUser = this.addUser.bind(this);
-    // this.checkboxChangeHandler = this.checkboxChangeHandler.bind(this);
   }
-
-  // checkboxChangeHandler(id) {
-  //   this.setState({
-  //     selectedId: id,
-  //   });
-  // }
 
   componentDidMount() {
     this.getUsers();
@@ -68,20 +60,14 @@ class App extends React.Component {
             addUser={this.addUser}
             schedule={this.state.schedule}
           />
-          {/* <div className="grid-wrapper">
-          <WeekMatchups
-            className="weekMatchups"
-            weekNumber={weekNumber}
-            schedule={schedule}
-            // selectedId={this.state.selectedId}
-            // onSelect={this.checkboxChangeHandler}
-          /> */}
           <Leaderboard
             className="leaderboard"
             users={users}
           />
         </div>
-        {/* </div> */}
+        <EntriesList
+          users={users}
+        />
       </div>
     );
   }
