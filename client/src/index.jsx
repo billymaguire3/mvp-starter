@@ -14,11 +14,19 @@ class App extends React.Component {
       users: [],
       weekNumber: 9,
       schedule: [],
+      // selectedId: 0
     };
     this.getUsers = this.getUsers.bind(this);
     this.getSchedule = this.getSchedule.bind(this);
     this.addUser = this.addUser.bind(this);
+    // this.checkboxChangeHandler = this.checkboxChangeHandler.bind(this);
   }
+
+  // checkboxChangeHandler(id) {
+  //   this.setState({
+  //     selectedId: id,
+  //   });
+  // }
 
   componentDidMount() {
     this.getUsers();
@@ -55,20 +63,25 @@ class App extends React.Component {
           <Header />
           <Navbar />
         </header>
-        <EntryForm
-          addUser={this.addUser}
-        />
         <div className="grid-wrapper">
+          <EntryForm
+            addUser={this.addUser}
+            schedule={this.state.schedule}
+          />
+          {/* <div className="grid-wrapper">
           <WeekMatchups
             className="weekMatchups"
             weekNumber={weekNumber}
             schedule={schedule}
-          />
+            // selectedId={this.state.selectedId}
+            // onSelect={this.checkboxChangeHandler}
+          /> */}
           <Leaderboard
             className="leaderboard"
             users={users}
           />
         </div>
+        {/* </div> */}
       </div>
     );
   }

@@ -73,7 +73,7 @@ class WeekMatchups extends React.Component {
                             name="awayTeamSelected"
                             type="checkbox"
                             // onClick={this.savePick(matchup.homeTeam)}
-                            onChange={this.handlePickChange.bind(this, matchup.awayTeam)}/>
+                            onChange={this.handlePickChange.bind(this, matchup.homeTeam)}/>
                         </td>
                         <td className="result">
                           <div>{matchup.result}</div>
