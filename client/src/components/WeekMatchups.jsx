@@ -7,16 +7,20 @@ class WeekMatchups extends React.Component {
       weekNumberValue: this.props.weekNumber,
       homeTeamSelected: false,
       awayTeamSelected: false,
+      picks: []
+      // isChecked: false,
     };
     this.handlePickChange = this.handlePickChange.bind(this);
+    this.savePick = this.savePick.bind(this);
+  }
+
+  savePick(team) {
+    this.setState({picks: [...this.state.picks, team]});
   }
 
   handlePickChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
     this.setState({
-      [name]: !value
+      [event.target.name]: event.target.checked,
     });
   }
 
@@ -56,11 +60,19 @@ class WeekMatchups extends React.Component {
                         </td>
                         <td className="home-team">
                           <div>{matchup.homeTeam}</div>
-                          <input name="homeTeamSelected" type="checkbox" onChange={this.handlePickChange}/>
+                          <input
+                            name="homeTeamSelected"
+                            type="checkbox"
+                            onClick={this.savePick(matchup.homeTeam)}
+                            onChange={this.handlePickChange}/>
                         </td>
                         <td className="away-team">
                           <div>{matchup.awayTeam}</div>
-                          <input name="awayTeamSelected" type="checkbox" onChange={this.handlePickChange}/>
+                          <input
+                            name="awayTeamSelected"
+                            type="checkbox"
+                            onClick={this.savePick(matchup.homeTeam)}
+                            onChange={this.handlePickChange}/>
                         </td>
                         <td className="result">
                           <div>{matchup.result}</div>

@@ -71,27 +71,23 @@
 }
 
 /* -----------------Matchups Container and List--------------- */
-.table-wrapper {
-  /* display: flex; */
+/* .table-wrapper {
   width: 100%;
   margin: 0%;
-}
+} */
 .table-container {
   width: 100%;
 }
 .main-table {
-  /* border-right: 1px solid #fcce95; */
   width: inherit;
   border-collapse: collapse;
 }
 #table-header th{
   font-size: 14px;
   font-weight: 600;
-  /* border-bottom: 1px solid #fcce95; */
 }
 #table-header-row {
   text-align: left;
-  /* border: 1px solid lightgray; */
 }
 tbody tr {
   border-top: 1px solid lightgray;
