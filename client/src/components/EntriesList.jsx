@@ -36,9 +36,8 @@ class EntriesList extends React.Component {
   }
 
   handleEntryClick(event) {
-    console.log(event.target);
     this.setState({
-      selectedPicksEntry: event.target.value
+      selectedPicksEntry: event.target.innerText
     });
   }
   // handleChange(event) {
@@ -57,7 +56,7 @@ class EntriesList extends React.Component {
     const selectedEntryName = users.filter((user) => user.entryName === selectedPicksEntry);
     return (
       <div>
-        <h3>Sitch Peaks</h3>
+        <h3>Sitch Picks</h3>
         <form>
           <label>
             select a user to view their picks
@@ -81,7 +80,7 @@ class EntriesList extends React.Component {
         </div>
         <div>
           <ul>{
-            selectedPicksEntry.length > 0 ? this.generatePicksArray(selectedEntryName[0].picks).map((pick) => <li>{pick}</li>) : <div></div>
+            selectedPicksEntry.length > 0 ? this.generatePicksArray(selectedEntryName[0].picks).map((pick, i) => <li key={i}>{pick}</li>) : <div></div>
           }</ul>
         </div>
       </div>

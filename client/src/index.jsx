@@ -57,6 +57,7 @@ class App extends React.Component {
         </header>
         <div className="grid-wrapper">
           <EntryForm
+            weekNumber={weekNumber}
             addUser={this.addUser}
             schedule={this.state.schedule}
           />
