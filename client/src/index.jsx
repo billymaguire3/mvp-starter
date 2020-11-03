@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from './components/Header.jsx';
 import Navbar from './components/Navbar.jsx';
 import EntryForm from './components/EntryForm.jsx';
+import WeekMatchups from './components/WeekMatchups.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends React.Component {
   }
 
   render () {
+    const {weekNumber, schedule } = this.state;
     return (
       <div>
         <header className="header-container">
@@ -54,6 +56,10 @@ class App extends React.Component {
         </header>
         <EntryForm
           addUser={this.addUser}
+        />
+        <WeekMatchups
+          weekNumber={weekNumber}
+          schedule={schedule}
         />
       </div>
     );
