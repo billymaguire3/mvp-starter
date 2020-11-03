@@ -49,3 +49,11 @@
   font-weight: 600;
   border-bottom: 1px solid #fcce95;
 }
+#table-header-row {
+  text-align: left;
+}
+
+#submit-button {
+  display: flex;
+  justify-content: center;
+}
