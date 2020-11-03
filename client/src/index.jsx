@@ -5,6 +5,7 @@ import Header from './components/Header.jsx';
 import Navbar from './components/Navbar.jsx';
 import EntryForm from './components/EntryForm.jsx';
 import WeekMatchups from './components/WeekMatchups.jsx';
+import Leaderboard from './components/Leaderboard.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class App extends React.Component {
   }
 
   render () {
-    const {weekNumber, schedule } = this.state;
+    const { weekNumber, schedule, users } = this.state;
     return (
       <div>
         <header className="header-container">
@@ -57,10 +58,17 @@ class App extends React.Component {
         <EntryForm
           addUser={this.addUser}
         />
-        <WeekMatchups
-          weekNumber={weekNumber}
-          schedule={schedule}
-        />
+        <div className="grid-wrapper">
+          <WeekMatchups
+            className="weekMatchups"
+            weekNumber={weekNumber}
+            schedule={schedule}
+          />
+          <Leaderboard
+            className="leaderboard"
+            users={users}
+          />
+        </div>
       </div>
     );
   }
