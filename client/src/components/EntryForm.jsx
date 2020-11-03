@@ -6,6 +6,8 @@ class EntryForm extends React.Component {
     this.state = {
       userName: '',
       entryName: '',
+      currentEntry: '',
+      currentUser: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,37 +25,42 @@ class EntryForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    console.log('User object from front-end', user);
     this.props.addUser(user);
     this.setState({
+      currentEntry: this.state.entryName,
+      currentUser: this.state.userName,
       userName: '',
-      entryName: ''
+      entryName: '',
     });
   }
 
   render() {
     return (
-      <form>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={this.state.userName}
-            name="userName"
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Entry Name:
-          <input
-            type="text"
-            value={this.state.entryName}
-            name="entryName"
-            onChange={this.handleChange}
-          />
-        </label>
-        <button onClick={this.handleSubmit}>Create Entry</button>
-      </form>
+      <div>
+        <form>
+          <label>
+            Username:
+            <input
+              type="text"
+              value={this.state.userName}
+              name="userName"
+              onChange={this.handleChange}
+            />
+          </label>
+          <label>
+            Entry Name:
+            <input
+              type="text"
+              value={this.state.entryName}
+              name="entryName"
+              onChange={this.handleChange}
+            />
+          </label>
+          <button onClick={this.handleSubmit}>Create Entry</button>
+        </form>
+        <h4>{this.state.currentUser}</h4>
+        <h4>{this.state.currentEntry}</h4>
+      </div>
     );
   }
 }
