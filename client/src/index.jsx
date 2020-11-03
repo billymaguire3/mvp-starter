@@ -15,6 +15,7 @@ class App extends React.Component {
     };
     this.getUsers = this.getUsers.bind(this);
     this.getSchedule = this.getSchedule.bind(this);
+    this.addUser = this.addUser.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,16 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  addUser(user) {
+    axios.post('/users', user)
+      .then((response) => {
+        this.getUsers();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   getSchedule(weekNum) {
     axios.get(`/schedules/${weekNum}`)
       .then((response) => this.setState({schedule: response.data}))
@@ -36,10 +47,15 @@ class App extends React.Component {
 
   render () {
     return (
-      <header className="header-container">
-        <Header />
-        <Navbar />
-      </header>
+      <div>
+        <header className="header-container">
+          <Header />
+          <Navbar />
+        </header>
+        <EntryForm
+          addUser={this.addUser}
+        />
+      </div>
     );
   }
 }

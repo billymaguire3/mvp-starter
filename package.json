@@ -28,6 +28,7 @@
     "nodemon": "^2.0.6",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "webpack-cli": "^4.1.0"
   }
 }

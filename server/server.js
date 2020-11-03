@@ -32,6 +32,17 @@ app.get('/users', (req, res) => {
     .catch((err) => res.status(400).send());
 });
 
+app.post('/users', (req, res) => {
+  const user = req.body;
+  controllers.addUserEntry(user)
+    .then((response) => {
+      res.status(201).send('Successfully added new user');
+    })
+    .catch((err) => {
+      res.status(401).send('Error adding new user');
+    });
+});
+
 app.listen(port, () => {
   console.log(`PickSitch App listening at http://localhost:${port}`);
 });

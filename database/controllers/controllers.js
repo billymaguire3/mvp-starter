@@ -13,8 +13,20 @@ const selectAllUsers = () => {
   return Users.find({});
 };
 
+const addUserEntry = (userEntry) => {
+  const newUser = new Users(userEntry);
+  return newUser.save((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(`Successfully inserted ${userEntry.userName}'s pick entry`);
+    }
+  });
+};
+
 module.exports = {
   selectAllSchedules,
   selectScheduleByWeekNumber,
   selectAllUsers,
+  addUserEntry,
 };
