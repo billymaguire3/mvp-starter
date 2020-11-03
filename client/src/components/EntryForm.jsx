@@ -39,7 +39,6 @@ class EntryForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const user = this.state;
-    console.log(user);
     this.props.addUser(user);
     this.setState({
       currentEntry: this.state.entryName,
@@ -74,7 +73,6 @@ class EntryForm extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-            {/* <button onClick={this.handleSubmit}>Create Entry</button> */}
           </div>
           <div>
             <div>
@@ -112,7 +110,6 @@ class EntryForm extends React.Component {
                               <input
                                 name="homeTeamSelected"
                                 type="checkbox"
-                                // onClick={this.savePick(matchup.homeTeam)}
                                 onChange={this.handlePickChange.bind(this, matchup.homeTeam)} />
                             </td>
                             <td className="away-team">
@@ -120,7 +117,6 @@ class EntryForm extends React.Component {
                               <input
                                 name="awayTeamSelected"
                                 type="checkbox"
-                                // onClick={this.savePick(matchup.homeTeam)}
                                 onChange={this.handlePickChange.bind(this, matchup.awayTeam)} />
                             </td>
                             <td className="result">
@@ -136,7 +132,6 @@ class EntryForm extends React.Component {
                   </tbody>
                 </table>
                 <div id="submit-button">
-                  {/* <button onClick={this.handleSubmit}>Submit My Picks</button> */}
                   <input type="submit" value="Submit My Sitch" />
                 </div>
               </div>

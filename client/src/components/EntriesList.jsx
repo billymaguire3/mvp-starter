@@ -40,14 +40,6 @@ class EntriesList extends React.Component {
       selectedPicksEntry: event.target.innerText
     });
   }
-  // handleChange(event) {
-  //   const target = event.target;
-  //   const value = target.value;
-  //   const name = target.name;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // }
 
   render() {
     const { users } = this.props;
@@ -56,7 +48,7 @@ class EntriesList extends React.Component {
     const selectedEntryName = users.filter((user) => user.entryName === selectedPicksEntry);
     return (
       <div>
-        <h3>Sitch Picks</h3>
+        <h3>Sitch Viewer</h3>
         <form>
           <label>
             select a user to view their picks

@@ -1,12 +1,15 @@
 const items = [
   {
     title: 'Home',
+    url: '/'
   },
   {
-    title: 'My Entries',
+    title: 'View Entries',
+    url: '/entries'
   },
   {
     title: 'Sitch Chat',
+    url: '/chat'
   }
 ];
 

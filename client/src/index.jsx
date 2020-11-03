@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header.jsx';
 import Navbar from './components/Navbar.jsx';
 import EntryForm from './components/EntryForm.jsx';
 import Leaderboard from './components/Leaderboard.jsx';
 import EntriesList from './components/EntriesList.jsx';
+import SitchChat from './components/SitchChat.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,33 +45,38 @@ class App extends React.Component {
 
   getSchedule(weekNum) {
     axios.get(`/schedules/${weekNum}`)
-      .then((response) => this.setState({schedule: response.data}))
+      .then((response) => this.setState({ schedule: response.data }))
       .catch((err) => console.log(err));
   }
 
-  render () {
+  render() {
     const { weekNumber, schedule, users } = this.state;
     return (
-      <div>
-        <header className="header-container">
-          <Header />
-          <Navbar />
-        </header>
-        <div className="grid-wrapper">
-          <EntryForm
-            weekNumber={weekNumber}
-            addUser={this.addUser}
-            schedule={this.state.schedule}
-          />
-          <Leaderboard
-            className="leaderboard"
+      <BrowserRouter>
+        <div>
+          <header className="header-container">
+            <Header />
+            <Navbar />
+            <Route exact path='/' component={App} />
+            <Route path='/entries' component={EntriesList} />
+            <Route path='/entries' component={SitchChat} />
+          </header>
+          <div className="grid-wrapper">
+            <EntryForm
+              weekNumber={weekNumber}
+              addUser={this.addUser}
+              schedule={this.state.schedule}
+            />
+            <Leaderboard
+              className="leaderboard"
+              users={users}
+            />
+          </div>
+          {/* <EntriesList
             users={users}
-          />
+          /> */}
         </div>
-        <EntriesList
-          users={users}
-        />
-      </div>
+      </BrowserRouter>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import items from './MenuItems.js';
+import items from '../MenuItems.js';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class Navbar extends React.Component {
               {items.map((item, index) => {
                 return (
                   <li className="nav-list" key={index}>
-                    <a className="nav-list-entry" href="#">
+                    <a className="nav-list-entry" href={item.url}>
                       {item.title}
                     </a>
                   </li>
