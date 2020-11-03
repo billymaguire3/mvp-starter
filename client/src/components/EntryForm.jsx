@@ -121,7 +121,7 @@ class EntryForm extends React.Component {
                               name="awayTeamSelected"
                               type="checkbox"
                               // onClick={this.savePick(matchup.homeTeam)}
-                              onChange={this.handlePickChange.bind(this, matchup.homeTeam)} />
+                              onChange={this.handlePickChange.bind(this, matchup.awayTeam)} />
                           </td>
                           <td className="result">
                             <div>{matchup.result}</div>
