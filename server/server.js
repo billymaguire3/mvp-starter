@@ -6,7 +6,7 @@ const db = require('../database/index.js');
 const app = express();
 const port = 3001;
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/../client/dist'));
@@ -37,15 +37,22 @@ app.post('/users', (req, res) => {
   const user = req.body;
   user.picks = user.picks.join();
   // console.log(user);
-  controllers.addUserEntry(user)
-    .then((response) => {
-      console.log('response in server', response);
-      res.status(201).send('Successfully added new user');
-    })
-    .catch((err) => {
-      res.status(401).send('Error adding new user');
-    });
+  controllers.addUserEntry(user, (err, responseData) => {
+    if (err) {
+      res.status(401).send();
+    } else {
+      res.status(201).send();
+    }
+  });
 });
+
+    // .then((response) => {
+    //   // console.log('response in server', response);
+    //   res.status(201).send('Successfully added new user');
+    // })
+    // .catch((err) => {
+    //   res.status(401).send('Error adding new user');
+    // });
 
 app.listen(port, () => {
   console.log(`PickSitch App listening at http://localhost:${port}`);
