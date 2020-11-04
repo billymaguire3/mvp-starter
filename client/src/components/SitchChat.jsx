@@ -6,7 +6,7 @@ import keys from '../../../pubnubKeys';
 
 const pubnub = new PubNub({
   publishKey: keys.publishKey,
-  subscribeKey: subscribeKey,
+  subscribeKey: keys.subscribeKey,
   // uuid: '<UUID>'
 });
 const channels = ['Public Sitch Chat'];

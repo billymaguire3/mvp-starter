@@ -29,7 +29,7 @@ class App extends React.Component {
 
   getUsers() {
     axios.get('/users')
-      .then((response) => this.setState({users: response.data}))
+      .then((response) => this.setState({ users: response.data }))
       .catch((err) => console.log(err));
   }
 
@@ -52,31 +52,27 @@ class App extends React.Component {
   render() {
     const { weekNumber, schedule, users } = this.state;
     return (
-      <BrowserRouter>
-        <div>
-          <header className="header-container">
-            <Header />
-            <Navbar />
-            <Route exact path='/' component={App} />
-            <Route path='/entries' component={EntriesList} />
-            <Route path='/entries' component={SitchChat} />
-          </header>
-          <div className="grid-wrapper">
-            <EntryForm
-              weekNumber={weekNumber}
-              addUser={this.addUser}
-              schedule={this.state.schedule}
-            />
-            <Leaderboard
-              className="leaderboard"
-              users={users}
-            />
-          </div>
-          {/* <EntriesList
+      <div>
+        <header className="header-container">
+          <Header />
+          <Navbar />
+        </header>
+        <div className="grid-wrapper">
+          <EntryForm
+            weekNumber={weekNumber}
+            addUser={this.addUser}
+            schedule={this.state.schedule}
+          />
+          <Leaderboard
+            className="leaderboard"
             users={users}
-          /> */}
+          />
         </div>
-      </BrowserRouter>
+        <EntriesList
+          users={users}
+        />
+        <SitchChat />
+      </div>
     );
   }
 }
