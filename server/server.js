@@ -5,6 +5,7 @@ const db = require('../database/index.js');
 
 const app = express();
 const port = 3001;
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -34,8 +35,11 @@ app.get('/users', (req, res) => {
 
 app.post('/users', (req, res) => {
   const user = req.body;
+  user.picks = user.picks.join();
+  // console.log(user);
   controllers.addUserEntry(user)
     .then((response) => {
+      console.log('response in server', response);
       res.status(201).send('Successfully added new user');
     })
     .catch((err) => {
