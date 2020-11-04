@@ -2,7 +2,7 @@
 
 /* --------- Global ----------------*/
 body {
-  background-image: url('./football_stadium.jpg');
+  background-color: #caebf7;
   font-family: 'Literata', Arial, Helvetica, sans-serif;
 }
 
@@ -116,18 +116,21 @@ tbody tr {
 }
 #submit:hover {
   cursor: pointer;
+  color: #8bdffc;
+  background-color: #a1b7bf;
 }
 
 /* -----------------Leaderboard--------------- */
 .leaderboard-container {
   overflow: scroll;
-  height: 60%;
+  height: 40%;
+  width: 100%;
 }
 
 .leader-table {
   border: 1px solid lightgrey;
   justify-content: center;
-  margin: auto 50%;
+  margin: auto;
 }
 .leader-header {
   text-align: center;
