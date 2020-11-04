@@ -1,14 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const controllers = require('../database/controllers/controllers.js');
 const db = require('../database/index.js');
 
 const app = express();
 const port = 3001;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(express.static(__dirname + '/../client/dist'));
 
 // Get full schedule for all weeks
@@ -46,13 +47,13 @@ app.post('/users', (req, res) => {
   });
 });
 
-    // .then((response) => {
-    //   // console.log('response in server', response);
-    //   res.status(201).send('Successfully added new user');
-    // })
-    // .catch((err) => {
-    //   res.status(401).send('Error adding new user');
-    // });
+// .then((response) => {
+//   // console.log('response in server', response);
+//   res.status(201).send('Successfully added new user');
+// })
+// .catch((err) => {
+//   res.status(401).send('Error adding new user');
+// });
 
 app.listen(port, () => {
   console.log(`PickSitch App listening at http://localhost:${port}`);

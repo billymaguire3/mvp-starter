@@ -13,12 +13,13 @@ const selectAllUsers = () => {
   return Users.find({});
 };
 
-const addUserEntry = (userEntry) => {
+const addUserEntry = (userEntry, callback) => {
   const newUser = new Users(userEntry);
-  return newUser.save((err) => {
+  return newUser.save((err, res) => {
     if (err) {
-      console.log(err);
+      callback(err);
     } else {
+      callback(null, res);
       console.log(`Successfully inserted ${userEntry.userName}'s pick entry`);
     }
   });

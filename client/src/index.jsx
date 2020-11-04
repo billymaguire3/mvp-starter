@@ -7,7 +7,7 @@ import Navbar from './components/Navbar.jsx';
 import EntryForm from './components/EntryForm.jsx';
 import Leaderboard from './components/Leaderboard.jsx';
 import EntriesList from './components/EntriesList.jsx';
-import SitchChat from './components/SitchChat.jsx';
+// import SitchChat from './components/SitchChat.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -71,7 +71,7 @@ class App extends React.Component {
         <EntriesList
           users={users}
         />
-        <SitchChat />
+        {/* <SitchChat /> */}
       </div>
     );
   }
