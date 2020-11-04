@@ -12,22 +12,28 @@ ul {
 
 /*--------------Header and Navbar----------------- */
 
-.header-container {
+#header-container {
   display: block;
   width: 100%;
   text-align: center;
 }
 
-.header-container #header {
+#header-container #header {
   font-family: 'Literata', Arial, Helvetica, sans-serif;
 }
-
+.menu-icon {
+  text-align: left;
+  position: fixed;
+}
 .menu-icon:hover {
   cursor: pointer;
 }
-
+#nav-list-whole {
+  text-align: left;
+  position: fixed;
+}
 .nav-list {
-  display: inline;
+  display: block;
   list-style-type: none;
   align-items: center;
 }
@@ -66,7 +72,7 @@ ul {
   margin: auto;
   border: 7px double#214a2c;
   border-radius: 1%;
-  background-color: #e8e7e6;
+  background-color: #fce2b6;
 }
 .weekMatchups {
   grid-column-start: 0;
@@ -117,7 +123,7 @@ tbody tr {
 #submit:hover {
   cursor: pointer;
   color: #8bdffc;
-  background-color: #a1b7bf;
+  background-color: #002709;
 }
 
 /* -----------------Leaderboard--------------- */
@@ -146,6 +152,23 @@ tbody tr {
   width: 40%;
   background-color: #e8e7e6;
   margin: auto;
+  text-align: center;
+}
+#user-selector {
+  margin: 0 8px;
+}
+.pick-list {
+  text-align: center;
+}
+.pick-list-item {
+  font-size: 12px;
+}
+.pick-list-item:hover {
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* -------------- Chat ----------------- */
+.Chat {
+  margin-top: 310px;
+}

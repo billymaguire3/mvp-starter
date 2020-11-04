@@ -1,15 +1,15 @@
 const items = [
   {
     title: 'Home',
-    url: '/'
+    url: '#header-container'
   },
-  // {
-  //   title: 'View Entries',
-  //   url: '#'
-  // },
+  {
+    title: 'Sitch Viewer',
+    url: '#entries-container'
+  },
   {
     title: 'Sitch Chat',
-    url: '/chat'
+    url: '#chat-container'
   }
 ];
 

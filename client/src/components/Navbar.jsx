@@ -22,7 +22,7 @@ class Navbar extends React.Component {
         </div>
         {
           this.state.clicked ?
-            <ul>
+            <ul id="nav-list-whole">
               {items.map((item, index) => {
                 return (
                   <li className="nav-list" key={index}>

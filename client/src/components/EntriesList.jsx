@@ -48,20 +48,21 @@ class EntriesList extends React.Component {
     const selectedEntryName = users.filter((user) => user.entryName === selectedPicksEntry);
     return (
       <div className="entries-wrapper">
-        <h3>Sitch Viewer</h3>
+        <h3 id="sitch-view-header">Sitch Viewer</h3>
         <form>
           <label>
             select a user to view their picks
-            <select value={selectedUserName} onChange={this.handleChange}>{
+            <select id="user-selector" value={selectedUserName} onChange={this.handleChange}>{
               uniqueUsers.map((user) => <option name={selectedUserName} key={user} value={user}>{user}</option>)
             }</select>
           </label>
         </form>
         <div>
-          <ul>{
+          <ul className="pick-list">{
             users.filter((user) => user.userName === selectedUserName).map((element) => {
               return (
                 <li
+                  className="pick-list-item"
                   value={element.entryName}
                   onClick={this.handleEntryClick}
                   key={element._id}

@@ -51,7 +51,7 @@ class App extends React.Component {
     const { weekNumber, schedule, users } = this.state;
     return (
       <div>
-        <header className="header-container">
+        <header id="header-container">
           <Header />
           <Navbar />
         </header>
@@ -66,10 +66,11 @@ class App extends React.Component {
             users={users}
           />
         </div>
-        <EntriesList
-          id="entries-container"
-          users={users}
-        />
+        <div id="entries-container">
+          <EntriesList
+            users={users}
+          />
+        </div>
         <div id="chat-container" className="sitch-chat">
           <SitchChat />
         </div>
