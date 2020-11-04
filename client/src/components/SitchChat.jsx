@@ -45,15 +45,17 @@ const SitchChat = () => {
               width: '500px',
               height: '300px',
               border: '1px solid black',
+              margin: 'auto',
             }}
           >
             <div style={{
-              backgroundColor: 'grey',
+              backgroundColor: '#e8e7e6',
               alignItems: 'center',
-            }}>Sitch Chat!</div>
+              textAlign: 'center',
+            }}>sitchat</div>
             <div
               style={{
-                backgroundColor: 'white',
+                backgroundColor: '#f2f4f5',
                 height: '260px',
                 overflow: 'scroll',
               }}
@@ -89,7 +91,7 @@ const SitchChat = () => {
                 style={{
                   borderRadius: '5px',
                   flexGrow: 1,
-                  fontSize: '18px',
+                  fontSize: '15px',
                 }}
                 placeholder="Type your message"
                 value={message}
@@ -97,10 +99,10 @@ const SitchChat = () => {
               />
               <button
                 style={{
-                  backgroundColor: 'blue',
-                  color: 'white',
+                  backgroundColor: '#214a2c',
+                  color: '#e8e7e6',
                   borderRadius: '5px',
-                  fontSize: '16px',
+                  fontSize: '13px',
                 }}
                 onClick={e => {
                   e.preventDefault();
