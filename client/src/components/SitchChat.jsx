@@ -5,8 +5,8 @@ import { PubNubProvider, PubNubConsumer } from 'pubnub-react';
 import keys from '../../../pubnubKeys';
 
 const pubnub = new PubNub({
-  publishKey: '<YOUR PUB KEY>',
-  subscribeKey: '<YOUR SUB KEY>',
+  publishKey: keys.publishKey,
+  subscribeKey: subscribeKey,
   // uuid: '<UUID>'
 });
 const channels = ['Public Sitch Chat'];
