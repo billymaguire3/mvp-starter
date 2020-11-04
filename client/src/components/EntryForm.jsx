@@ -51,39 +51,42 @@ class EntryForm extends React.Component {
 
   render() {
     const { schedule } = this.props;
+    const { weekNumber, entryName, userName } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
           <div>
-            <label>
-              Username:
+            <label className="entry-titles">
+              Username
               <input
+                className="input-bubble"
                 type="text"
-                value={this.state.userName}
+                value={userName}
                 name="userName"
                 onChange={this.handleChange}
               />
             </label>
-            <label>
-              Entry Name:
+            <label className="entry-titles">
+              Entry Name
               <input
+                className="input-bubble"
                 type="text"
-                value={this.state.entryName}
+                value={entryName}
                 name="entryName"
                 onChange={this.handleChange}
               />
             </label>
+            <select className="input-bubble">
+              <option value="week 9" onChange={this.handleChange}>Week {weekNumber}</option>
+            </select>
           </div>
           <div>
             <div>
-              <select>
-                <option value="week 9" onChange={this.handleChange}>Week {this.state.weekNumberValue}</option>
-              </select>
             </div>
             <div className="weekMatchups">
               <div className="table-container">
                 <table className="main-table">
-                  <thead id="table-header">
+                  <thead className="table-header">
                     <tr id="table-header-row">
                       <th className="date-time">Day/Month/Time</th>
                       <th className="location">Location</th>
@@ -93,12 +96,12 @@ class EntryForm extends React.Component {
                       <th className="spread">Spread</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody className="table-body">
                     {
                       schedule.map((matchup) => {
                         const dateTime = `${matchup.date.slice(0, 5)} ${matchup.date.slice(-4)}`;
                         return (
-                          <tr key={matchup._id}>
+                          <tr className="table-body-row" key={matchup._id}>
                             <td className="date-time">
                               <div>{dateTime}</div>
                             </td>
@@ -108,6 +111,7 @@ class EntryForm extends React.Component {
                             <td className="home-team">
                               <div>{matchup.homeTeam}</div>
                               <input
+                                className="input-bubble"
                                 name="homeTeamSelected"
                                 type="checkbox"
                                 onChange={this.handlePickChange.bind(this, matchup.homeTeam)} />
@@ -115,6 +119,7 @@ class EntryForm extends React.Component {
                             <td className="away-team">
                               <div>{matchup.awayTeam}</div>
                               <input
+                                className="input-bubble"
                                 name="awayTeamSelected"
                                 type="checkbox"
                                 onChange={this.handlePickChange.bind(this, matchup.awayTeam)} />
@@ -132,7 +137,7 @@ class EntryForm extends React.Component {
                   </tbody>
                 </table>
                 <div id="submit-button">
-                  <input type="submit" value="Submit My Sitch" />
+                  <input id="submit" type="submit" value="Create My Entry" />
                 </div>
               </div>
             </div>

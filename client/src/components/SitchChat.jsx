@@ -47,7 +47,10 @@ const SitchChat = () => {
               border: '1px solid black',
             }}
           >
-            <div style={{ backgroundColor: 'grey' }}>React Chat Example</div>
+            <div style={{
+              backgroundColor: 'grey',
+              alignItems: 'center',
+            }}>Sitch Chat!</div>
             <div
               style={{
                 backgroundColor: 'white',

@@ -47,7 +47,7 @@ class EntriesList extends React.Component {
     const uniqueUsers = this.generateUniqueUsersArray(users);
     const selectedEntryName = users.filter((user) => user.entryName === selectedPicksEntry);
     return (
-      <div>
+      <div className="entries-wrapper">
         <h3>Sitch Viewer</h3>
         <form>
           <label>

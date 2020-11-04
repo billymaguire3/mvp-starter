@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata");
 
 /* --------- Global ----------------*/
+body {
+  background-image: url('./football_stadium.jpg');
+  font-family: 'Literata', Arial, Helvetica, sans-serif;
+}
 
 ul {
   list-style-type: none;
@@ -45,10 +49,24 @@ ul {
   border-bottom: 4px solid #c97002;
 }
 
-/* -------- Matchups and Leaderboard Grid ---------- */
+/* -------- Entry Form, Matchups and Leaderboard Grid ---------- */
+.entry-titles {
+  font-size: 12px;
+  letter-spacing: .5px;
+  margin: 0 4vw;
+}
+.input-bubble {
+  background-color: #ffefe0;
+}
 .grid-wrapper {
   display: grid;
   grid-template-columns: 80% 20%;
+  max-height: 775px;
+  max-width: 1048px;
+  margin: auto;
+  border: 7px double#214a2c;
+  border-radius: 1%;
+  background-color: #e8e7e6;
 }
 .weekMatchups {
   grid-column-start: 0;
@@ -58,14 +76,58 @@ ul {
   grid-column-start: 1;
   grid-column-end: 2;
 }
+.table-container {
+  width: 100%;
+}
+.main-table {
+  width: inherit;
+  border-collapse: collapse;
+
+}
+#table-header th{
+  font-size: 14px;
+  font-weight: 600;
+}
+#table-header-row {
+  font-size: 14px;
+  text-align: left;
+}
+#table-header-row th{
+  font-weight: bold;
+}
+tbody tr {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.table-body-row {
+  font-size: 12px;
+}
+
+#submit-button {
+  display: block;
+  margin: auto 42%;
+}
+#submit {
+  border: 2px ridge #214a2c;
+  font-weight: 600;
+  font-size: 12px;
+  width: 220px;
+}
+#submit:hover {
+  cursor: pointer;
+}
 
 /* -----------------Leaderboard--------------- */
+.leaderboard-container {
+  overflow: scroll;
+  height: 60%;
+}
 
 .leader-table {
   border: 1px solid lightgrey;
   justify-content: center;
-  margin: auto;
-  /* border-radius: 10%; */
+  margin: auto 50%;
 }
 .leader-header {
   text-align: center;
@@ -76,33 +138,9 @@ ul {
   font-style: oblique;
 }
 
-/* -----------------Matchups Container and List--------------- */
-/* .table-wrapper {
-  width: 100%;
-  margin: 0%;
-} */
-.table-container {
-  width: 100%;
+/* ----------------- Sitch Viewer --------------- */
+.entries-wrapper {
+  width: 40%;
+  background-color: #e8e7e6;
+  margin: auto;
 }
-.main-table {
-  width: inherit;
-  border-collapse: collapse;
-}
-#table-header th{
-  font-size: 14px;
-  font-weight: 600;
-}
-#table-header-row {
-  text-align: left;
-}
-tbody tr {
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
-}
-
-#submit-button {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
