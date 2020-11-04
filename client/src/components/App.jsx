@@ -67,9 +67,10 @@ class App extends React.Component {
           />
         </div>
         <EntriesList
+          id="entries-container"
           users={users}
         />
-        <div className="sitch-chat">
+        <div id="chat-container" className="sitch-chat">
           <SitchChat />
         </div>
       </div>
