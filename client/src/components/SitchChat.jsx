@@ -53,7 +53,8 @@ const SitchChat = () => {
               backgroundColor: '#e8e7e6',
               alignItems: 'center',
               textAlign: 'center',
-            }}>sitchat</div>
+              borderBottom: '3px dotted darkgreen'
+            }}>Sitchat</div>
             <div
               style={{
                 backgroundColor: '#f2f4f5',

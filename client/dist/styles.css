@@ -163,7 +163,18 @@ tbody tr {
 }
 .pick-list-item {
   font-size: 12px;
+  font-family: fantasy;
 }
+.pick-list-item:hover {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pick-team-item {
+  font-size: 12px;
+  font-family: monospace;
+}
+
 .pick-list-item:hover {
   font-size: 16px;
   cursor: pointer;

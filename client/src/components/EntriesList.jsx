@@ -74,7 +74,7 @@ class EntriesList extends React.Component {
         </div>
         <div>
           <ul>{
-            selectedPicksEntry.length > 0 ? this.generatePicksArray(selectedEntryName[0].picks).map((pick, i) => <li key={i}>{pick}</li>) : <div></div>
+            selectedPicksEntry.length > 0 ? this.generatePicksArray(selectedEntryName[0].picks).map((pick, i) => <li className="pick-team-item" key={i}>{pick}</li>) : <div></div>
           }</ul>
         </div>
       </div>

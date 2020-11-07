@@ -46,14 +46,9 @@ class EntryForm extends React.Component {
     const target = event.target;
     const name = target.name;
     const value = target.value;
-    const requiredString = 'Week';
-    if (value.includes(requiredString)) {
-      this.setState({
-        [name]: value
-      });
-    } else {
-      alert('Please include which this pick is for: Week _');
-    }
+    this.setState({
+      [name]: value
+    });
   }
 
   handleWeekChange(event) {
