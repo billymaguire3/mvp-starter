@@ -31,7 +31,8 @@ class EntriesList extends React.Component {
   handleChange(event) {
     const value = event.target.value;
     this.setState({
-      selectedUserName: value
+      selectedUserName: value,
+      selectedPicksEntry: ''
     });
   }
 

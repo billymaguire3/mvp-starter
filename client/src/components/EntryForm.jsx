@@ -1,4 +1,5 @@
 import React from 'react';
+import weeks from '../WeekNumbers';
 
 class EntryForm extends React.Component {
   constructor(props) {
@@ -9,15 +10,16 @@ class EntryForm extends React.Component {
       picks: [],
       currentEntry: '',
       currentUser: '',
-      weekNumber: this.props.weekNumber
+      // weekNumber: this.props.weekNumber
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleWeekChange = this.handleWeekChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.savePick = this.savePick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   savePick(team) {
-    this.setState({picks: [...this.state.picks, team]});
+    this.setState({ picks: [...this.state.picks, team] });
   }
 
   handlePickChange(team, event) {
@@ -25,15 +27,6 @@ class EntryForm extends React.Component {
       [event.target.name]: event.target.checked,
     });
     this.savePick(team);
-  }
-
-  handleChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value,
-    });
   }
 
   handleSubmit(event) {
@@ -47,6 +40,19 @@ class EntryForm extends React.Component {
       entryName: '',
     });
     event.target.reset();
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleWeekChange(event) {
+    this.props.handleWeekNumberChange(event);
   }
 
   render() {
@@ -76,9 +82,9 @@ class EntryForm extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-            <select className="input-bubble">
-              <option value="week 9" onChange={this.handleChange}>Week {weekNumber}</option>
-            </select>
+            <select value={weekNumber} onChange={this.handleWeekChange} className="input-bubble">{
+              weeks.map((week, index) => <option value={week.number} key={index}>Week {week.number}</option>)
+            }</select>
           </div>
           <div>
             <div>

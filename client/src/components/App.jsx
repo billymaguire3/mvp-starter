@@ -18,6 +18,7 @@ class App extends React.Component {
     this.getUsers = this.getUsers.bind(this);
     this.getSchedule = this.getSchedule.bind(this);
     this.addUser = this.addUser.bind(this);
+    this.handleWeekNumberChange = this.handleWeekNumberChange.bind(this);
   }
 
   componentDidMount() {
@@ -43,12 +44,22 @@ class App extends React.Component {
 
   getSchedule(weekNum) {
     axios.get(`/schedules/${weekNum}`)
-      .then((response) => this.setState({ schedule: response.data }))
+      .then((response) => {
+        console.log(response.data);
+        this.setState({ schedule: response.data });
+      })
       .catch((err) => console.log(err));
   }
 
+  handleWeekNumberChange(event) {
+    console.log(event.target.value);
+    this.setState({
+      weekNumber: event.target.value
+    }, () => this.getSchedule(this.state.weekNumber));
+  }
+
   render() {
-    const { weekNumber, schedule, users } = this.state;
+    const { weekNumber, schedule, users, getSchedule } = this.state;
     return (
       <div>
         <header id="header-container">
@@ -60,6 +71,8 @@ class App extends React.Component {
             weekNumber={weekNumber}
             addUser={this.addUser}
             schedule={this.state.schedule}
+            getSchedule={getSchedule}
+            handleWeekNumberChange={this.handleWeekNumberChange}
           />
           <Leaderboard
             className="leaderboard"
