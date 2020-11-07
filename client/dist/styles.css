@@ -137,6 +137,7 @@ tbody tr {
   border: 1px solid lightgrey;
   justify-content: center;
   margin: auto;
+  background-color: #edf9fc;
 }
 .leader-header {
   text-align: center;

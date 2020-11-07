@@ -44,10 +44,7 @@ class App extends React.Component {
 
   getSchedule(weekNum) {
     axios.get(`/schedules/${weekNum}`)
-      .then((response) => {
-        console.log(response.data);
-        this.setState({ schedule: response.data });
-      })
+      .then((response) => this.setState({ schedule: response.data }))
       .catch((err) => console.log(err));
   }
 
