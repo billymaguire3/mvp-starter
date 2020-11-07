@@ -25,6 +25,7 @@ const SitchChat = () => {
     );
   };
 
+
   return (
     <PubNubProvider client={pubnub}>
       <div className="Chat">
@@ -65,8 +66,8 @@ const SitchChat = () => {
                   <div
                     key={`message-${messageIndex}`}
                     style={{
-                      display: 'inline-block',
-                      float: 'left',
+                      display: 'block',
+                      // float: 'left',
                       backgroundColor: '#eee',
                       color: 'black',
                       borderRadius: '20px',
@@ -93,14 +94,14 @@ const SitchChat = () => {
                   flexGrow: 1,
                   fontSize: '15px',
                 }}
-                placeholder="Type your message"
+                placeholder="Talk Sitch Smack Here"
                 value={message}
                 onChange={e => setMessage(e.target.value)}
               />
               <button
                 style={{
-                  backgroundColor: '#214a2c',
-                  color: '#e8e7e6',
+                  backgroundColor: '#fce2b6',
+                  color: 'darkGray',
                   borderRadius: '5px',
                   fontSize: '13px',
                 }}
@@ -109,7 +110,7 @@ const SitchChat = () => {
                   sendMessage(message);
                 }}
               >
-                Send Message
+                Send Smack
               </button>
             </div>
           </div>
