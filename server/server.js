@@ -37,7 +37,6 @@ app.get('/users', (req, res) => {
 app.post('/users', (req, res) => {
   const user = req.body;
   user.picks = user.picks.join();
-  // console.log(user);
   controllers.addUserEntry(user, (err, responseData) => {
     if (err) {
       res.status(401).send();
@@ -46,14 +45,6 @@ app.post('/users', (req, res) => {
     }
   });
 });
-
-// .then((response) => {
-//   // console.log('response in server', response);
-//   res.status(201).send('Successfully added new user');
-// })
-// .catch((err) => {
-//   res.status(401).send('Error adding new user');
-// });
 
 app.listen(port, () => {
   console.log(`PickSitch App listening at http://localhost:${port}`);

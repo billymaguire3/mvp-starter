@@ -49,7 +49,6 @@ class App extends React.Component {
   }
 
   handleWeekNumberChange(event) {
-    console.log(event.target.value);
     this.setState({
       weekNumber: event.target.value
     }, () => this.getSchedule(this.state.weekNumber));

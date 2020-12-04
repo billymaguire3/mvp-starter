@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import PubNub from 'pubnub';
 import { PubNubProvider, PubNubConsumer } from 'pubnub-react';
-// import './App.css';
 import keys from '../../../pubnubKeys';
 
 const pubnub = new PubNub({
   publishKey: keys.publishKey,
   subscribeKey: keys.subscribeKey,
-  // uuid: '<UUID>'
 });
 const channels = ['Public Sitch Chat'];
 
@@ -68,10 +66,9 @@ const SitchChat = () => {
                     key={`message-${messageIndex}`}
                     style={{
                       display: 'block',
-                      // float: 'left',
                       backgroundColor: '#eee',
+                      borderStyle: 'outset',
                       color: 'black',
-                      borderRadius: '20px',
                       margin: '5px',
                       padding: '8px 15px',
                     }}

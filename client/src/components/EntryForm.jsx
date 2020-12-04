@@ -10,7 +10,6 @@ class EntryForm extends React.Component {
       picks: [],
       currentEntry: '',
       currentUser: '',
-      // weekNumber: this.props.weekNumber
     };
     this.handleWeekChange = this.handleWeekChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -82,9 +81,10 @@ class EntryForm extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
-            <select value={weekNumber} onChange={this.handleWeekChange} className="input-bubble">{
-              weeks.map((week, index) => <option value={week.number} key={index}>Week {week.number}</option>)
-            }</select>
+            <select value={weekNumber} onChange={this.handleWeekChange} className="input-bubble">
+              <option>Select Week</option>{
+                weeks.map((week, index) => <option value={week.number} key={index}>Week {week.number}</option>)
+              }</select>
           </div>
           <div>
             <div>
